@@ -9,12 +9,11 @@ require_once "controllers.php";
 
 //route the request internally
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-echo $uri;
 
-if ("/mvc/index.php" === $uri) {
+if ("/mvc/index.php" === $uri || "/mvc/" === $uri) {
     list_action();
-} elseif ("/mvc/index.php/show" == $uri && isset($_GET["id"])) {
-    show_action($_GET["id"]);
+} elseif ("/mvc/index.php/show" == $uri && isset($_GET["survey"])) {
+    show_action($_GET["survey"]);
 } else {
     //header("HTTP/1.1 404 Not Found", true, 404);
     echo "<html><body><h1>Page Not Found</h1></body></html>";

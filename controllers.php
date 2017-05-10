@@ -8,7 +8,7 @@ function list_action() {
 
 function show_action($id) {
     $survey = get_survey_by_id($id);
-    require "show.php";
+    require "templates/show.php";
 }
 
 ?>

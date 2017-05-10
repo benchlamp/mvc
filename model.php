@@ -51,7 +51,7 @@ function get_all_surveys() {
 function get_survey_by_id($id) {
     $conn = open_database_connection();
     
-    $SQL = "SELECT Question, OptionA, OptionB, OptionC FROM surveys WHERE id='$id'";
+    $SQL = "SELECT * FROM surveys WHERE id='$id'";
     $result = mysqli_query($conn, $SQL);
 
 
