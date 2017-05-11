@@ -1,1 +1,1 @@
-console.log("woot");
+console.log("linked js file in show.php is running");

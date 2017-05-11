@@ -12,7 +12,9 @@
 
     <div class="chart-container"></div>
 
-    <script src="templates/test.js"></script>
+    <script>var survey = <?= json_encode($survey); ?></script>
+
+    <script src="http://www.benchlamp.co.uk/mvc/templates/d3pie.js"></script>
 
 <?php $content = ob_get_clean() ?>
 
