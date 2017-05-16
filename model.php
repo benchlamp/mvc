@@ -29,6 +29,7 @@ function close_database_connection($link) {
 }
 
 
+
 function get_all_surveys() {
 
     $conn = open_database_connection();
@@ -63,6 +64,57 @@ function get_survey_by_id($id) {
     close_database_connection($conn);
     
     return $survey;
+}
+
+
+function create_new_survey() {
+  $conn = open_database_connection();
+
+  $Question = $_POST["survey-title"];
+  $Opt1 = $_POST["opt-1"];
+  $Opt2 = $_POST["opt-2"];
+  $Opt3 = $_POST["opt-3"];
+
+  $SQL = "INSERT INTO surveys (Question, OptionA, OptionB, OptionC)
+  VALUES ('$Question', '$Opt1', '$Opt2', '$Opt3')";
+
+  if (mysqli_query($conn, $SQL)) {
+      echo "New record created successfully";
+  } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+
+  close_database_connection($conn);
+}
+
+
+function cast_vote() {
+  //add 1 to $_POST["vote"] in $_POST["ID"]
+  $vote = $_POST["vote"];
+  $ID =  $_POST["ID"];
+  $conn = open_database_connection();
+
+  $SQL = "UPDATE surveys SET " . $vote . " = " . $vote . " + 1 WHERE ID='$ID'"; 
+
+  if ($conn->query($SQL) === TRUE) {
+      $response = get_survey_by_id($ID);
+  } else {
+      $response = "Error updating record: " . $conn->error;
+  }
+
+ 
+  close_database_connection($conn);
+
+  echo json_encode($response);
+}
+
+function logout() {
+  echo "logout running";
+  unset($_SESSION['user']);
+  session_unset();
+  session_destroy();
+  header("Location: /mvc/login");
+  exit;
 }
 
 ?>

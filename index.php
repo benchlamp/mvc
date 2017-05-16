@@ -1,22 +1,41 @@
 <?php
 
 //index.php
-
+session_start();
 //load & initialize any global libraries
 require_once "model.php";
 require_once "controllers.php";
 
 
 //route the request internally
-$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-if ("/mvc/index.php" === $uri || "/mvc/" === $uri) {
-    list_action();
-} elseif ("/mvc/index.php/show" == $uri && isset($_GET["survey"])) {
-    show_action($_GET["survey"]);
+
+parse_str($_SERVER["QUERY_STRING"], $query);
+
+$route = $query["first"];
+
+if ($query["second"][0] == "/") {
+  $arg = substr($query["second"], 1);
 } else {
-    //header("HTTP/1.1 404 Not Found", true, 404);
-    echo "<html><body><h1>Page Not Found</h1></body></html>";
+  $arg = $query["second"];
+}
+
+//echo $route . "<br />";
+//echo $arg;
+
+
+if ($route == "login") {
+  login_action();
+} elseif ($route == "show") {
+  show_action($arg);
+} elseif ($route == "create") {
+  create_action();
+} elseif ($route == "vote") {
+  vote_action();
+} elseif ($route == "logout") {
+  logout_action();
+} else {
+  list_action();
 }
 
 ?>
