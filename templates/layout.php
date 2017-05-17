@@ -12,7 +12,6 @@
 		<link rel="stylesheet" type="text/css" href="http://www.benchlamp.co.uk/mvc/templates/style.css">
     </head>
     <body>
-<script>console.log("script in layout.php is running")</script>
 	  <script src="https://code.jquery.com/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>

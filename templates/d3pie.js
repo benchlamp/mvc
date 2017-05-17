@@ -2,12 +2,6 @@ function createChart(survey) {
 
 $(".chart-container").html("");
 
-console.log("linked d3pie.js file in show.php is running");
-
-
-console.log(survey);
-
-console.log(survey.Question);
 
     var dataObj = [
       {
