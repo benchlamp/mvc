@@ -29,7 +29,7 @@
          <a href='/mvc/login'><p>Please sign in to vote or create</p></a>";
 } else {
     echo "<h5 class='login-details'>logged in as " . $_SESSION["userName"] . "</h5>";
-echo '<a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>';
+echo '<a href="/mvc/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>';
 }
 ?>     
 

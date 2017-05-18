@@ -7,6 +7,10 @@ body {
   max-width: 960px;
 }    
 
+.container > a {
+ text-decoration: none;
+}
+
 .container > a > .jumbotron {
       margin-top: 5%;
       background-color: #5cb85c;
@@ -22,8 +26,13 @@ body {
       list-style-type: none;
     }
 
-form > .list-group > .list-group-item {
-padding: 0;
+.list-group > .list-group-item {
+  padding: 0;
+}
+
+.list-group > .list-group-item > a {
+  text-decoration: none;
+
 }
 
 .survey-link {
@@ -33,20 +42,7 @@ padding: 0;
   text-align: left;
 }
 
-
-.form-group > hr {
-  clear:both;
-}
-
 .chart-container {
   text-align: center;
 }
 
-#create-form {
-  display: none;
-  padding-bottom: 40px;
-}
-
-#create-button {
-  margin: 5px 0 15px 0;
-}
